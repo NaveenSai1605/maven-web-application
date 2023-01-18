@@ -9,7 +9,7 @@
 </head>
 </head>
 <body>
-<h1 align="center">Welcome to InfraProjects Pvt Ltd. Hyderabad,Telangana </h1>
+<h1 align="center">Welcome to InfraProjects pvt Ltd. Hyderabad,Telangana </h1>
 <h1 align="center"> InfraProjects Pvt Ltd.- Very Prestigeous and Renowed company in Hyderabad</h1>
 <hr>
 <br>
