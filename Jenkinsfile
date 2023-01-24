@@ -1,6 +1,6 @@
 node{
 def mavenHomedir= tool name: "Maven"
-echo "Build Number: ${env.BUILD_NUMBER}"
+//echo "Build Number: ${env.BUILD_NUMBER}"
 echo "Job Name: ${env.JOB_NAME}"
 echo "node:${env.NODE_NAME}"
 stage('sourceCodefromGit'){
