@@ -1,6 +1,7 @@
-try{
 pipeline{
     agent any
+    try{
+    notifyBuild('STARTED')
     options {
            timestamps()
     }//optionsclosure
