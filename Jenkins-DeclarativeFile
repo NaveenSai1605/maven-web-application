@@ -1,6 +1,6 @@
 pipeline{
+try{
     agent any
-    try{
     notifyBuild('STARTED')
     options {
            timestamps()
