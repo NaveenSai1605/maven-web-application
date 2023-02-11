@@ -39,7 +39,7 @@ pipeline{
         }
     }
 }//TryClosure
-catch(e){
+catch (e) {
 currentBuild.result="FAILED"
 }
 finally{
