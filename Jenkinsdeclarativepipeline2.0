@@ -4,10 +4,10 @@ pipeline {
              maven 'maven3.9.0'
         }//tools close
         stages{
-	      notifyBuild('STARTED')
               stage('CheckoutCodeFromSCM'){
                    steps{
-                        git branch: 'development', credentialsId: '629f01a2-b69c-4ddb-84c9-fd4b7ef68f76', url: 'https://github.com/NaveenSai1605/maven-web-application.git'
+                        notifyBuild('STARTED')
+			git branch: 'development', credentialsId: '629f01a2-b69c-4ddb-84c9-fd4b7ef68f76', url: 'https://github.com/NaveenSai1605/maven-web-application.git'
                    }
               }//checkoutCode close
               stage('Build'){
