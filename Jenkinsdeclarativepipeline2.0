@@ -4,6 +4,7 @@ pipleline {
              maven 'maven3.9.0'
         }//tools close
         stages{
+	      notifyBuild('STARTED')
               stage('CheckoutCodeFromSCM'){
                    steps{
                         git branch: 'development', credentialsId: '629f01a2-b69c-4ddb-84c9-fd4b7ef68f76', url: 'https://github.com/NaveenSai1605/maven-web-application.git'
@@ -34,13 +35,13 @@ pipleline {
         }//stagesclose
         post {
             aborted {
-                   notifyBuild(currentBuild.result)
+                   notifyBuild('ABORTED')
             }//abort close
             success {
-                    notifyBuild(currentBuild.result)
+                    notifyBuild('SUCCESS')
             }//success close
             failure {
-                     notifyBuild(currentBuild.result)
+                     notifyBuild('FAILURE')
             }//failure close
         }//post close
 }//pipeline close
@@ -49,7 +50,7 @@ pipleline {
 def notifyBuild(String buildStatus = 'STARTED') 
 {
   // build status of null means successful
-  buildStatus =  buildStatus ?: 'SUCCESSFUL'
+  buildStatus =  buildStatus ?: 'SUCCESS'
 
   // Default values
   def colorName = 'RED'
@@ -61,7 +62,7 @@ def notifyBuild(String buildStatus = 'STARTED')
   if (buildStatus == 'STARTED') {
     color = 'YELLOW'
     colorCode = '#FFFF00'
-  } else if (buildStatus == 'SUCCESSFUL') {
+  } else if (buildStatus == 'SUCCESS') {
     color = 'GREEN'
     colorCode = '#00FF00'
 	} else {
