@@ -1,4 +1,4 @@
-pipleline{
+pipleline {
         agent any
         tools{
              maven 'maven3.9.0'
@@ -44,7 +44,7 @@ pipleline{
             }//failure close
         }//post close
 }//pipeline close
-
+/*
 //Slack notifications
 def notifyBuild(String buildStatus = 'STARTED') 
 {
@@ -72,3 +72,4 @@ def notifyBuild(String buildStatus = 'STARTED')
   // Send notifications
   slackSend (color: colorCode, message: summary)
 }
+*/
