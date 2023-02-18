@@ -1,12 +1,13 @@
 pipeline{
         agent any
-	emailext body: '....', recipientProviders: [buildUser()], subject: 'Declarative-Way Build Notification', to: 'naveensai.thummala@gmail.com'
+	
         tools{
 		    maven 'maven3.9.0'
 		}
 		stages{
 		      stage('Checkout Code SCM'){
 			       steps{
+			                 emailext body: 'Build has Started', recipientProviders: [buildUser()], subject: 'Declarative-Way Build Notification', to: 'naveensai.thummala@gmail.com'
 				         notifyBuild('STARTED')
 				        git branch: 'development', credentialsId: '629f01a2-b69c-4ddb-84c9-fd4b7ef68f76', url: 'https://github.com/NaveenSai1605/maven-web-application.git'
 				    }
@@ -39,12 +40,15 @@ pipeline{
 		post {
             aborted {
                    notifyBuild('ABORTED')
+		   emailext body: 'Build Aborted', recipientProviders: [buildUser()], subject: 'Declarative-Way Build Notification', to: 'naveensai.thummala@gmail.com'
            }//Aborted Close
             success {
                    notifyBuild('SUCCESS')  
+		   emailext body: 'Build Success', recipientProviders: [buildUser()], subject: 'Declarative-Way Build Notification', to: 'naveensai.thummala@gmail.com'
            }//Success close
            failure {
                    notifyBuild('FAILURE')
+		   emailext body: 'Build Failed', recipientProviders: [buildUser()], subject: 'Declarative-Way Build Notification', to: 'naveensai.thummala@gmail.com'
            }//Failure Close
        }//post close
 }//Pipeline close
