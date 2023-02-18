@@ -1,5 +1,6 @@
 pipeline{
         agent any
+	emailext body: '....', recipientProviders: [buildUser()], subject: 'Declarative-Way Build Notification', to: 'naveensai.thummala@gmail.com'
         tools{
 		    maven 'maven3.9.0'
 		}
