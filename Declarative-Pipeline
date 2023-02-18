@@ -25,6 +25,7 @@ pipeline{
 				       sh "mvn deploy"
 				   }
 			  }//Artifactory Close
+			  /*
 			  stage('Application Deploy to Tomcat'){
 			      steps{
 				     sshagent(['74ac16d7-45cd-4440-8b24-16ea7c173ee7']) {
@@ -32,6 +33,7 @@ pipeline{
 				     }
 				  }
 			  }//Tomcat Close
+			  */
 		}//Stages close
 		post {
             aborted {
